@@ -10,8 +10,7 @@ url = 'http://provberkane.com/covid19/public/page4'
 response = requests.get(url, timeout=5)
 content = BeautifulSoup(response.content, "html.parser")
 
-
-now = datetime.now().strftime("%d/%m/%Y %H:%M")
+now = datetime.now().strftime("%H:%M %d/%m/%Y")
 excluded = content.select_one("div.panel-success div.panel-body").text
 confirmed = content.select_one("div.panel-danger div.panel-body").text
 dead = content.select_one("div.panel-default div.panel-body").text
@@ -44,5 +43,5 @@ print(colored("Recovered: ", 'green'), covidBerkane[0]['recovered'])
 #print("Dead: ",covidObject['dead'])
 #print("Recovered: ",covidObject['recovered'])
 
-with open('coviData.json', 'w') as outfile:
+with open('statsData.json', 'w') as outfile:
     json.dump(covidBerkane, outfile, default=str)
