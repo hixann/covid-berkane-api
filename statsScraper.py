@@ -18,8 +18,8 @@ import re
 
 now = datetime.now().strftime("%H:%M %d/%m/%Y")
 
-confirmed = 37
-recovered = 7
+confirmed = 38
+recovered = 9
 dead = 2
 
 stats = []

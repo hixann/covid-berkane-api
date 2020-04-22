@@ -19,8 +19,8 @@ import re
 
 regions_en = [ "Ahfir",  "Ain Reggada",  "Berkane",  "Boughriba",  "Fezouane",  "Laatamna", ]
 regions_ar = [ "أحفير",  "عين الركادة",  "بركان",  "بوغريبة",  "فزوان",  "لعثامنة", ]
-cases =  [ 1,  3,  27,  3,  2,  1, ]
-recovered =  [ 1,  0,  6,  0,  0,  0, ]
+cases =  [ 1,  3,  27,  3,  3,  1, ]
+recovered =  [ 1,  0,  7,  1,  0,  0, ]
 deaths =  [ 0,  0,  1,  1,  0,  0, ]
 
 perRegion = []
