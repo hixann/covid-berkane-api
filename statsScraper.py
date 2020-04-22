@@ -26,7 +26,7 @@ dead = 2
 stats = []
 
 latestStats = {
-        "Date": daylight,
+        "Date": evening,
         "confirmed": confirmed,
         "recovered": recovered,
         "dead": dead
