@@ -1,47 +1,41 @@
 from bs4 import BeautifulSoup
-from termcolor import colored
-from datetime import date
 from datetime import datetime
 import requests
 import json
+import urllib.request
+from re import findall
 import re
 
-url = 'http://provberkane.com/covid19/public/page4'
-response = requests.get(url, timeout=5)
-content = BeautifulSoup(response.content, "html.parser")
+#url = 'http://provberkane.com/covid19/public/'
+#response = urllib.request.urlopen(url)
+#html = response.read()
+#htmlStr = html.decode()
+
+#response = requests.get(url, timeout=5)
+#content = BeautifulSoup(response.content, "html.parser")
+
+#r = re.findall(r'[-+]?\d+?\.\d+,[-+]?\d+?\.\d+', htmlStr)
 
 now = datetime.now().strftime("%H:%M %d/%m/%Y")
-excluded = content.select_one("div.panel-success div.panel-body").text
-confirmed = content.select_one("div.panel-danger div.panel-body").text
-dead = content.select_one("div.panel-default div.panel-body").text
-recovered = content.select_one("div.panel-info div.panel-body").text
 
+confirmed = 37
+recovered = 7
+dead = 2
 
-excluded_processed = re.sub('\s', '', excluded)
-confirmed_processed = re.sub('\s', '', confirmed)
-dead_processed = re.sub('\s', '', dead)
-recovered_processed = re.sub('\s', '', recovered)
+stats = []
 
-covidBerkane = []
-
-covidObject = {
+latestStats = {
         "Date": now,
-        "excluded": excluded_processed,
-        "confirmed": confirmed_processed,
-        "dead": dead_processed,
-        "recovered": recovered_processed
-        }
+        "confirmed": confirmed,
+        "recovered": recovered,
+        "dead": dead
+}
 
-covidBerkane.append(covidObject)
+print(latestStats)
 
-print("COVID-19 situation in Berkane")
-print("Date: ", now)
-print(colored("Excluded: ", 'blue'), covidBerkane[0]['excluded'])
-print(colored("Confirmed: ", 'blue'), covidBerkane[0]['confirmed'])
-print(colored("Dead: ", 'red'), covidBerkane[0]['dead'])
-print(colored("Recovered: ", 'green'), covidBerkane[0]['recovered'])
-#print("Dead: ",covidObject['dead'])
-#print("Recovered: ",covidObject['recovered'])
+stats.append(latestStats)
+
+#print(perRegion)
 
 with open('statsData.json', 'w') as outfile:
-    json.dump(covidBerkane, outfile, default=str)
+    json.dump(stats, outfile, default=str)
