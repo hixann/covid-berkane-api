@@ -16,7 +16,8 @@ import re
 
 #r = re.findall(r'[-+]?\d+?\.\d+,[-+]?\d+?\.\d+', htmlStr)
 
-now = datetime.now().strftime("%H:%M %d/%m/%Y")
+daylight = datetime.now().strftime("10:00 %d/%m/%Y")
+evening = datetime.now().strftime("18:00 %d/%m/%Y")
 
 confirmed = 38
 recovered = 9
@@ -25,7 +26,7 @@ dead = 2
 stats = []
 
 latestStats = {
-        "Date": now,
+        "Date": daylight,
         "confirmed": confirmed,
         "recovered": recovered,
         "dead": dead
