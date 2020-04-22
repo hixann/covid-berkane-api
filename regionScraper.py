@@ -17,18 +17,13 @@ import re
 #r = re.findall(r'[-+]?\d+?\.\d+,[-+]?\d+?\.\d+', htmlStr)
 #print(r)
 
-now = datetime.now().strftime("%H:%M %d/%m/%Y")
 regions_en = [ "Ahfir",  "Ain Reggada",  "Berkane",  "Boughriba",  "Fezouane",  "Laatamna", ]
 regions_ar = [ "أحفير",  "عين الركادة",  "بركان",  "بوغريبة",  "فزوان",  "لعثامنة", ]
 cases =  [ 1,  3,  27,  3,  2,  1, ]
 recovered =  [ 1,  0,  6,  0,  0,  0, ]
 deaths =  [ 0,  0,  1,  1,  0,  0, ]
 
-perRegion = [
-        {
-            "Date": now,
-        }
-        ]
+perRegion = []
 
 for region_en, region_ar, case, recover, death in zip(regions_en, regions_ar, cases, recovered, deaths):
     provinceBerkane = {
