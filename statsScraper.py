@@ -19,14 +19,14 @@ import re
 daylight = datetime.now().strftime("10:00 %d/%m/%Y")
 evening = datetime.now().strftime("18:00 %d/%m/%Y")
 
-confirmed = 38
-recovered = 9
+confirmed = 39
+recovered = 10
 dead = 2
 
 stats = []
 
 latestStats = {
-        "Date": evening,
+        "Date": daylight,
         "confirmed": confirmed,
         "recovered": recovered,
         "dead": dead
